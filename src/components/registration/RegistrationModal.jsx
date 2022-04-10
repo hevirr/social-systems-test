@@ -184,15 +184,15 @@ const RegistrationModal2 = ({
     function checkIfValuesGreaterThanZero() {
       switch (linkIsValid.type) {
         case 'post':
-          if (valuesCount.reposts.max === 0 && valuesCount.likes.max === 0) {
+          if (valuesCount.reposts.max === 0 || valuesCount.likes.max === 0) {
             return false;
           }
-          break;
+          return true;
         case 'account':
           if (valuesCount.followers.max === 0) {
             return false;
           }
-          break;
+          return true;
         default:
           return;
       }
